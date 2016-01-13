@@ -1,35 +1,60 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Asp.NET MVC";
 }
 @section featured {
     <section class="featured">
         <div class="content-wrapper">
             <hgroup class="title">
-                <h1>@ViewBag.Title.</h1>
-                <h2>@ViewBag.Message</h2>
+                <h1>@ViewBag.Title</h1>
             </hgroup>
             <p>
-                Web App Mvc Controller View Layout
+                Web App Mvc Controller View Layout .NET 4 MVC 4
             </p>
         </div>
     </section>
 }
-<h3>We suggest the following:</h3>
-<ol class="round">
-    <li>
-        Otimization: remove ScriptBundle, StyleBundle not necessary in App_Start\BundleConfig.cs
+<h2>General</h2>
+<p>The MVC pattern separate the different aspects of the application (input logic, business logic, and UI logic) and provide a loose coupling between these elements.</p>
+<h3>Some Advantages:</h3>
+<p>
+    test-driven development (TDD), all core contracts in the MVC framework are interface-based and can be tested by using mock objects,
+    which are simulated objects that imitate the behavior of actual objects in the application.
+</p>
+<p>URL-mapping component that lets you build URLs do not have to include file-name extensions, and work well for search engine optimization (SEO) 
+    and representational state transfer (REST) addressing.</p>
+<p>DI allows you to inject objects into a class, instead of relying on the class to create the object itself.  This makes testing easier.</p>
+<h3>Obs:</h3>
+<p>Otimization: remove ScriptBundle, StyleBundle not necessary in App_Start\BundleConfig.cs</p>
+<h3>Resources:</h3>
+<ol >
+    <li>Controller: responsible for controlling the way that a user interacts with an application, contains the flow control logic. 
+    Determines what response to send back to a user when a user makes a browser request. Is a class (Controller) C# with methods (Actions) which
+    handles query-string values, and passes these values to the model or view.<br />
+    Class and Method
+    <pre>public class HomeController : Controller {
+    public ActionResult Index(){
+        return View();
+    }
+}</pre></li>
+    <li>View: contain the HTML markup and content that is sent to the browser, a view is the equivalent of a page. 
+        To return a view for a controller action is necessary create a subfolder in the Views folder with the same name as your controller,
+        following path: \Views\Home\Index.cshtml<br />
+    View currently uses Razor engine to write datas on the screen, the char &#64; start the syntax (tag text also belong to Razor).<br />
+    Html, C# and Razor<br />
+    <pre>&#64;{
+    string textInfo = "Today is: ";
+    string dateToday = DateTime.Now.ToString();    
+}
+&lt;html&gt;
+ &lt;body&gt;
+  &lt;p&gt;&lt;text&gt;@@textInfo @@dateToday&lt;/text&gt;&lt;/p&gt;
+ &lt;/body&gt;
+&lt;/html&gt;</pre>
     </li>
+    </ol>
 
-    <li class="two">
-        <h5>Add NuGet packages and jump-start your coding</h5>
-        NuGet makes it easy to install and update free libraries and tools.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245153">Learn more…</a>
-    </li>
+<h3>Stages</h3>
+<p>Receive first request for the application - Perform routing - Create MVC request handler - Create controller - Execute controller - Invoke action - Execute result</p>
+@Html.ActionLink("Basic", "Index", "Basic")<br />
+@Html.ActionLink("Medium", "Index", "Medium")
 
-    <li class="three">
-        <h5>Find Web Hosting</h5>
-        You can easily find a web hosting company that offers the right mix of features
-        and price for your applications.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>
-    </li>
-</ol>

@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Index";
+    string textInfo = "Today is: ";
+}
+
+<h2>C# in View</h2>
+<h3>C# statements</h3>
+<pre>&#64;{
+    string textInfo = "Today is: ";
+    string dateToday = DateTime.Now.ToString();
+}
+&#64;foreach (var item in collection){
+        
+}
+&#64;if (true){
+        
+}
+&#64;using (resource){
+        
+}</pre>
+
+<h3>C# write variable and raw text: &lt;text&gt;raw text&lt;/text&gt; &#64;:raw text</h3>
+<pre>Inline
+@@textInfo @textInfo
+
+Block
+&#64;{
+    &lt;text&gt;&#64;textInfo&lt;/text&gt; <text>@textInfo</text>
+    &lt;text&gt;raw text&lt;/text&gt; <text>raw text</text>     
+
+@{
+    <text>&#64;:raw text</text> @:raw text
+    <text>&#64;:&lt;p&gt;paragraph&lt;/p&gt;</text> @:<p>paragraph</p>
+}
+}</pre>
+
+@Html.ActionLink("Helpers to Layout and Interaction", "Helpers") - 
+@Html.ActionLink("Request QueryString Param", "RequestQueryStringParam", new{cod=66, name="Sam"}) - 
+@Html.ActionLink("Request Route Param", "RequestRouteParam", new{id=55}) - 
+@Html.ActionLink("Passing Data", "PassingData") - 
+@Html.ActionLink("Bundle Sequence", "BundleSequence")

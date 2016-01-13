@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "rest";
+}
+
+<h2>rest</h2>
+
+source: http://haacked.com/archive/2011/01/06/razor-syntax-quick-reference.aspx/<br />
+    C#
+
+<p>Some Helpers &#64;Html</p>
+<ul>
+    <li>ViewBag</li>
+    <li>ViewData</li>
+    <li>AntiForgeryToken() - Generates a hidden form field (anti-forgery token) that is validated when the form is submitted.</li>
+    <li>AttributeEncode()</li>
+    <li>EnableClientValidation()</li>
+    <li>EnableUnobtrusiveJavaScript()</li>
+    <li>Encode()</li>
+    <li>FormatValue()</li>
+    <li>GenerateIdFromName()</li>
+    <li>GenerateLink()</li>
+    <li>GenerateRouteLink()</li>
+    <li>GetFormMethodString()</li>
+    <li>GetInputTypeString()</li>
+    <li>GetUnobtrusiveValidationAttributes()</li>
+    <li>HttpMethodOverride(HttpVerbs)</li>
+    <li>ObjectToDictionary(Object)</li>
+    <li>Raw()</li>
+    <li>SetValidationMessageElement()</li>
+    <li>SetValidationSummaryMessageElement()</li>
+</ul>
+<p>Extensions</p>
+<ul>
+    <li>Action()</li>
+    <li>ActionLink()</li>
+    <li>BeginForm() EndForm()</li>
+    <li>BeginRouteForm()</li>
+    <li>CheckBox()</li>
+    <li>DropDownList() ListBox()</li>
+    <li>Editor() EditorForModel()</li>
+    <li>Hidden()</li>
+    <li>Label() LabelForModel()</li>
+    <li>Password()</li>
+    <li>RadioButton()</li>
+    <li>TextArea()</li>
+    <li>TextBox()</li>
+
+    <li>Display() DisplayForModel() DisplayName() DisplayText()</li>
+    <li>Id() IdForModel()</li>
+    <li>Name() NameForModel()</li>
+    <li>Partial()</li>
+    <li>RenderAction()</li>
+    <li>RenderPartial()</li>
+    <li>RouteLink()</li>
+    <li>Validate() ValidationMessage() ValidationSummary()</li>
+    <li>Value() ValueForModel()</li>
+</ul>
+<p>source: https://msdn.microsoft.com/en-us/library/system.web.mvc.htmlhelper(v=vs.118).aspx</p>
+<p>Some Helpers &#64;Page</p>@Page
+<ul>
+    <li>RenderBody()</li>
+    <li>RenderPage()</li>
+    <li>RenderSection()</li>
+</ul>
+<p>Helper &#64;Url.Action()</p>
+    </li>
+</ol>
+
+@{
+    //---statement or Code Block
+    string text = "Today is: ";
+    string today = DateTime.Now.ToString();
+    <text>@text @today</text>
+    @:text raw
+}
+@if (true)
+{
+    <text>ok</text>
+}
+<p>END</p>
+
+http://www.asp.net/mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-cs

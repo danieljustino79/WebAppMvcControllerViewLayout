@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "BundleSequence";
+}
+
+<h2>BundleSequence</h2>
+Register in global.asax
+<pre>public class MvcApplication : System.Web.HttpApplication{
+    protected void Application_Start(){
+        BundleConfig.RegisterBundles(BundleTable.Bundles);
+    }
+}</pre>
+
+Add CSS and JS in \app_start\bundleconfig.cs
+<pre>public class BundleConfig{
+    public static void RegisterBundles(BundleCollection bundles){
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                    "~/Content/site.css"));
+        
+            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                    "~/Scripts/jquery.js"));
+    }
+}</pre>
+<hr />
+Call in View
+<pre>&#64;Styles.Render("~/Content/css")
+&#64;Scripts.Render("~/bundles/jquery")
+</pre>

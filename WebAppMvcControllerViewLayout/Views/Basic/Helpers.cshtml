@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Helpers";
+}
+@section featured{
+    <b>Text defined in View, but reserved in Layout.cshtml</b>
+}
+
+<h2>Helpers to Layout</h2>
+<h3>Razor Helper link &#64;Html and &#64;Url</h3>
+<pre>@@Html.ActionLink("link", "MethodName", "ControllerName") @Html.ActionLink("link", "MethodActionName", "ControllerName")
+@@Html.ActionLink("link", "MethodActionName", new { id=5, name="sam" })  @Html.ActionLink("link", "MethodActionName", new { id=5, name="sam" }) (with param id and QueryString)
+@@Html.ActionLink("link", "MethodActionName", new { code=5, name="sam" }) @Html.ActionLink("link", "MethodActionName", new { code=5, name="sam" }) (with QueryString)
+
+&lt;a href="@@Html.Action("Test", "Basic")"&gt;link&lt;/a&gt; <a href="@Html.Action("Test", "Basic")">link</a> (with validation of resource existing)
+&lt;a href="@@Url.Action("MethodActionNotExist", "ControllerNotExist")"&gt;link&lt;/a&gt; <a href="@Url.Action("MethodActionNotExist", "ControllerNotExist")">link</a>
+
+@@Html.Raw("raw text") @Html.Raw("raw text")
+@@Html.Raw("&lt;p&gt;paragraph&lt;/p&gt;") @Html.Raw("<p>paragraph</p>")
+</pre>
+
+<h3>Razor Helper Layout</h3>
+<p>@@RenderPage()</p>
+<pre>@@RenderPage("~/Views/_PartialAspNetMvc.cshtml") @RenderPage("~/Views/_PartialAspNetMvc.cshtml")
+<hr />
+<p>@@Html.Partial()</p>
+@@Html.Partial("~/Views/_PartialAspNetMvc.cshtml") @Html.Partial("~/Views/_PartialAspNetMvc.cshtml")
+<hr />
+<p>@@{Html.RenderPartial();}</p>
+@@{Html.RenderPartial("~/Views/_PartialAspNetMvc.cshtml");} @{Html.RenderPartial("~/Views/_PartialAspNetMvc.cshtml");}
+<hr />
+<p>@@{Html.RenderAction();}</p>
+@@{Html.RenderAction("Calc", new { v1 = 1, v2 = 2 });} @{Html.RenderAction("Calc", new { v1 = 1, v2 = 2 });}
+<hr />
+<p>@@RenderSection()</p>
+_Layout.cshtml
+@@RenderSection("featured", required: false)
+
+Index.cshtml
+@@section featured{
+ &lt;b&gt;Text defined in View, but reserved in Layout.cshtml&lt;/b&gt;
+}
+<hr />
+<p>@@RenderBody() - ContentPlaceHolder </p>
+_Layout.cshtml
+&lt;html&gt;
+ &lt;body&gt;
+  &lt;div class="main"&gt;@@RenderBody()&lt;/div&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+
+Index.cshtml<span style="color:red">
+&lt;html&gt;
+ &lt;body&gt;
+  &lt;div class="main"&gt;</span>
+   &lt;p&gt;Text in View&lt;/p&gt;
+<span style="color:red">&lt;/div&gt;
+ &lt;/body&gt;
+&lt;/html&gt;</span>
+<hr />
+<p>@@Url.Content()</p>
+&lt;link href="@@Url.Content("~/Content/style.css")" /&gt;
+</pre>

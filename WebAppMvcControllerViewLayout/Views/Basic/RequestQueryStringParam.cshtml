@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "RequestQueryStringParam";
+}
+
+<h2>RequestQueryStringParam</h2>
+
+<p>Request ActionLink</p>
+<pre>@@Html.ActionLink("Request QueryString Param", "RequestQueryStringParam", new{cod=66, name="Sam"})</pre>
+
+<hr />
+
+<p>URL: querystring combine with params of controller</p>
+<pre>.../RequestQueryStringParam?cod=66&name=sam</pre>
+
+<hr />
+
+<p>Controller</p>
+<pre>public ActionResult RequestQueryStringParam(int cod, string name){
+    ViewBag.cod = "RequestQueryStringParam: " + cod;
+    ViewBag.name = "RequestQueryStringParam: " + name;
+    return View();
+}</pre>
+
+<hr />
+
+<p>View</p>
+
+<p>@@ViewBag.cod @ViewBag.cod</p>
+
+<p>@@ViewBag.name @ViewBag.name</p>

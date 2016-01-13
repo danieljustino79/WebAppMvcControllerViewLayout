@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "RequestRouteParam";
+}
+
+<h2>RequestRouteParam</h2>
+
+<p>Request ActionLink</p>
+<pre>@@Html.ActionLink("Request QueryString Param", "RequestQueryStringParam", new{id=55})</pre>
+
+<hr />
+
+<p>URL: Action/param combine with param of controller and route registered in global.asax</p>
+<pre>.../RequestRouteParam/55</pre>
+Global.asax
+<pre>public class MvcApplication : System.Web.HttpApplication {
+    protected void Application_Start(){
+        RouteConfig.RegisterRoutes(RouteTable.Routes);
+    }
+}</pre>
+RouteConfig.cs
+<pre>public class RouteConfig {
+    public static void RegisterRoutes(RouteCollection routes) {
+        routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+        routes.MapRoute(
+            name: "Default",
+            url: "{controller}/{action}/{id}",
+            defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+        );
+    }
+}</pre>
+
+<hr />
+
+<p>Controller</p>
+<pre>public ActionResult RequestQueryStringParam(int id){
+    ViewBag.id = "RequestRouteParam: " + id;
+    return View();
+}</pre>
+
+<hr />
+
+<p>View</p>
+
+<p>@@ViewBag.id @ViewBag.id</p>

@@ -1,0 +1,27 @@
+﻿@{    
+    ViewBag.Title = "PassingData";
+}
+
+<h2>PassingData</h2>
+<p>Controller</p>
+<pre>public ActionResult PassingData(){
+    ViewBag.ViewBagParam1 = "text raw";
+    ViewData["ViewDataParam1"] = 1;
+    TempData["TempDataParam1"] = 1.1;
+    Session["SessionParam1"] = true;
+    ViewBag.ObjectComplex = new ObjectComplex{ character = 'a', name = "Sam" };
+}</pre>
+<hr />
+<p>View</p>
+            
+<p>@@ViewBag.ViewBagParam1 @ViewBag.ViewBagParam1</p>
+
+<p>@@ViewData["ViewDataParam1"] @ViewData["ViewDataParam1"] ViewData ViewDataDictionary : IDictionary&lt;string, object&gt;</p>
+
+<p>@@TempData["TempDataParam1"] @TempData["TempDataParam1"]</p>
+
+<p>@@Session["SessionParam1"] @Session["SessionParam1"]</p>
+
+<p>@@ViewBag.ObjectComplex.id  @ViewBag.ObjectComplex.character - @@ViewBag.ObjectComplex.name @ViewBag.ObjectComplex.name</p>
+
+source: http://www.dotnet-tricks.com/Tutorial/mvc/9KHW190712-ViewData-vs-ViewBag-vs-TempData-vs-Session.html
